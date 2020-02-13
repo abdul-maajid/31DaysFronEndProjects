@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Counter</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic);
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(to right bottom, #8e448e, green);
+            color: #fff;
+            font-family: 'Roboto Mono', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .counter {
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter" data-target="12000"></div>
+    <span>Twitter Follower</span>
+    <div class="counter" data-target="4000"></div>
+    <span>YouTube Subscribers</span>
+
+    <script>
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            counter.innerText = '0';
+
+            const updateCounter = () => {
+                const target = counter.getAttribute('data-target');
+                const c = +counter.innerText;
+                const increment = Math.random() * 2;
+
+                if(c < target) {
+                    counter.innerText = Math.ceil(c + increment);
+                    setTimeout(updateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            }
+
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
