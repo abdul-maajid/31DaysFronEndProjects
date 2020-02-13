@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #background {
+            background: url('https://images.unsplash.com/photo-1549927455-67cc16cc490c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            right: -40px;
+            bottom: -40px;
+            filter: blur(20px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="background" class="background"></div>
+    <div class="bg-white rounded p-10 text-center shadow-md">
+        <h1 class="text-3xl">Image Password Strengh</h1>
+        <p class="text-sm text-gray-800">Change the password to see the effect.</p>
+
+        <div class="my-4 text-left">
+            <label for="" class="text-gray-800">Email:</label>
+            <input type="email" id="email" placeholder="Enter Email..." class="border block w-full p-2 m-2 rounded">
+        </div>
+
+        <div class="my-4 text-left">
+            <label for="" class="text-gray-800">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password..." class="border block w-full p-2 m-2 rounded">
+        </div>
+    </div>
+
+    <script>
+        const password = document.getElementById('password');
+        const background = document.getElementById('background');
+
+        password.addEventListener('input', (e) => {
+            const input = e.target.value;
+            const length = input.length;
+            const blurValue = 20 - length * 2;
+            background.style.filter = `blur(${blurValue}px)`;
+        });
+    </script>
+</body>
+</html>
