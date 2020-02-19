@@ -40,7 +40,7 @@
             const updateCounter = () => {
                 const target = counter.getAttribute('data-target');
                 const c = +counter.innerText;
-                const increment = Math.random() * 2;
+                const increment = Math.random() * 100;
 
                 if(c < target) {
                     counter.innerText = Math.ceil(c + increment);
