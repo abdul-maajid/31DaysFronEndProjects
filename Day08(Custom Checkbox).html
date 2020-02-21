@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Checkbox</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Muli", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        color:#555;
+        margin: 0;
+      }
+      .checkbox {
+          position: absolute;
+          left: -9999px;
+      }
+      .label {
+          font-size: 20px;
+          position: relative;
+      }
+      .label::before {
+          content: '';
+          background-color: #fff;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          display: inline-block;
+          position: absolute;
+          left: -30px;
+          width: 21px;
+          height: 21px;
+      }
+      .label::after {
+          color: #2ecc71;
+          content: '\2714';
+          border-radius: 5px;
+          display: inline-block;
+          position: absolute;
+          left: -25px;
+          transform: scale(0);
+          transition: transform 0.3s linear;
+      }
+      .checkbox:checked + .label::after {
+          transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+      <h1>CSS Custom Checkbox</h1>
+      <div>
+          <input type="checkbox" name="checkbox" id="checkbox" class="checkbox" />
+          <label for="checkbox" class="label">Checkbox</label>
+      </div>
+  </body>
+</html>
